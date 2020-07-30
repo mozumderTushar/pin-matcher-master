@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button type="submit" id="submit-btn" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left"> <span id="action-left">3</span> try left</p>
                             </div>
                     </div>
                 </div>
@@ -112,8 +112,23 @@
 
             if(pinNum == calculatorDisplayNum){
                document.getElementById('pin-matched').style.display = 'block';
+
+               document.getElementById('display-number').value = '';
+               document.getElementById('pin-mismatched').style.display = '';
             }else{
                 document.getElementById('pin-mismatched').style.display = 'block';
+                const actionLeft = document.getElementById('action-left').innerText;
+                
+                if(actionLeft > 0){
+                   var remainingAction = actionLeft - 1;
+                   document.getElementById('action-left').innerText = remainingAction;
+                    if(remainingAction == 0){
+                        document.getElementById('submit-btn').disabled = true;
+                    }
+                }
+
+                document.getElementById('display-number').value = '';
+                document.getElementById('pin-matched').style.display = '';
             }
         })
 
@@ -133,7 +148,6 @@
                 input.value = displayInput;
             }
         }
-        
     </script>
 </body>
 </html>
