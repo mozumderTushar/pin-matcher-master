@@ -61,7 +61,7 @@
         //PIN Generate
         const pinGenerate = document.getElementById('pin-generate');
         pinGenerate.addEventListener('click',function(){
-         document.getElementById('display-pin').value =  (Math.round(1000 + Math.random() * 9000));
+         document.getElementById('display-pin').value =  (Math.ceil(1000 + Math.random() * 9000));
         }) 
 
         //Calculator Part
@@ -115,6 +115,7 @@
 
                document.getElementById('display-number').value = '';
                document.getElementById('pin-mismatched').style.display = '';
+
             }else{
                 document.getElementById('pin-mismatched').style.display = 'block';
                 const actionLeft = document.getElementById('action-left').innerText;
